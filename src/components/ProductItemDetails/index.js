@@ -42,7 +42,7 @@ class ProductItemDetails extends Component {
   })
 
   getProductData = async () => {
-    const {match} = this.prpos
+    const {match} = this.props
     const {params} = match
     const {id} = params
 
@@ -67,7 +67,7 @@ class ProductItemDetails extends Component {
       this.setState({
         productData: updatedData,
         similarProductsData: updatedSimilarProductsData,
-        apiStatus: apiStatusConstants.failure,
+        apiStatus: apiStatusConstants.success,
       })
     }
     if (response.status === 404) {
@@ -86,7 +86,7 @@ class ProductItemDetails extends Component {
   renderFailureView = () => (
     <div className="product-details-failure-view-container">
       <img
-        alt="error view"
+        alt="failure view"
         src="https://assets.ccbp.in/frontend/react-js/nxt-trendz-error-view-img.png"
         className="failure-view-image"
       />
